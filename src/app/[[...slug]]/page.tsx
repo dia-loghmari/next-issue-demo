@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 import { allPages } from "../all-pages";
 import resolveComponent from "../resolveComponent";
 
@@ -6,11 +6,11 @@ type PageProps = {
   params: Promise<{ slug?: string[] | string }>;
 };
 
-export async function generateStaticParams() {
+/* export async function generateStaticParams() {
   return allPages.map((onePage) => ({
     slug: Array.isArray(onePage.slug) ? onePage.slug : [onePage.slug],
   }));
-}
+} */
 
 export default async function Page({ params }: PageProps) {
   const slug = (await params).slug || ['/'];
